@@ -62,7 +62,8 @@ for j in range(60000):
         if j == 60000:
             done = True
 print(layer_2)
-while True:
+notDone=True
+while notDone:
     
     for x in range(4):
         data = np.rint(layer_2)
@@ -72,3 +73,6 @@ while True:
         data = arduino.write(struct.pack('>B', data))
         time.sleep(2)
         print(struct.pack('>B', data))
+        if(x == 4):
+            notDone = False
+            
